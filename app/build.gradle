@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'com.sn.mapd721_w2023_p1_group_10'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.sn.mapd721_w2023_p1_group_10"
@@ -33,7 +33,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
