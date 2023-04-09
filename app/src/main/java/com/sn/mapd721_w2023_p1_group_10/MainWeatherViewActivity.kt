@@ -1,5 +1,8 @@
 package com.sn.mapd721_w2023_p1_group_10
 
+import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.app.Activity
+import android.content.pm.PackageManager
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +10,8 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
 import org.json.JSONObject
 import org.w3c.dom.Text
 import java.net.URL
@@ -17,6 +22,9 @@ class MainWeatherViewActivity : AppCompatActivity() {
 
     val CITY: String = "Toronto,ca"
     val API: String = "3b57b3d787ba93b37afb428cb50d2cdd"
+
+    //Unique permission ID to request Permission
+    private var PERMISSION_ID = 52
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,4 +101,28 @@ class MainWeatherViewActivity : AppCompatActivity() {
             }
         }
     }
+
+    //Checking the uses permission
+    private fun CheckPermission(): Boolean
+    {
+        if(
+            ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+                    ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+
+        ) {
+            return true
+        }
+
+        return false
+    }
+
+    //Getting user permission
+    private fun RequestPermission()
+    {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION,android.Manifest.permission.ACCESS_COARSE_LOCATION,PERMISSION_ID)
+        )
+    }
+
 }
