@@ -427,15 +427,72 @@
             app:srcCompat="@android:drawable/ic_menu_mylocation" />
 
         <TextView
-            android:id="@+id/currentLocationInfo_Location"
-            android:layout_width="348dp"
-            android:layout_height="83dp"
+            android:id="@+id/lattitudeTxt"
+            android:layout_width="172dp"
+            android:layout_height="40dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="106dp"
-            android:layout_marginEnd="7dp"
-            android:text="Location Info"
-            android:textSize="14sp">
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="0dp"
+            android:text="Lattitude"
+            android:textSize="14sp"
+            android:visibility="invisible">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/longitudeTxt"
+            android:layout_width="177dp"
+            android:layout_height="38dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="112dp"
+            android:layout_marginEnd="181dp"
+            android:text="Longitude"
+            android:textSize="14sp"
+            android:visibility="invisible">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/countryNameTxt"
+            android:layout_width="177dp"
+            android:layout_height="38dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="157dp"
+            android:layout_marginEnd="180dp"
+            android:text="Country"
+            android:textSize="14sp"
+            android:visibility="invisible">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/localityTxt"
+            android:layout_width="177dp"
+            android:layout_height="38dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="157dp"
+            android:layout_marginEnd="-1dp"
+            android:text="Locality"
+            android:textSize="14sp"
+            android:visibility="invisible">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/addressTxt"
+            android:layout_width="359dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="203dp"
+            android:layout_marginEnd="0dp"
+            android:text="Address"
+            android:textSize="14sp"
+            android:visibility="invisible">
 
         </TextView>
 
