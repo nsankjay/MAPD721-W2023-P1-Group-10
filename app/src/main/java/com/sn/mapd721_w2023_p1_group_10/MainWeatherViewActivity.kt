@@ -1,32 +1,22 @@
 package com.sn.mapd721_w2023_p1_group_10
 
 import android.Manifest
-import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.*
-import android.location.LocationRequest
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Looper
-import android.provider.Settings
-import android.util.Log
 import android.view.View
 import android.widget.*
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.getSystemService
 import com.google.android.gms.location.*
 import org.json.JSONObject
-import org.w3c.dom.Text
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.round
 
 class MainWeatherViewActivity : AppCompatActivity() {
 
@@ -109,9 +99,11 @@ class MainWeatherViewActivity : AppCompatActivity() {
                     "Updated at: " + SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(
                         Date(updatedAt * 1000)
                     )
-                val temp = main.getString("temp") + "°C"
-                val tempMin = "Min Temp: " + main.getString("temp_min") + "°C"
-                val tempMax = "Max Temp: " + main.getString("temp_max") + "°C"
+                val temp = main.getInt("temp")
+                //val temp = main.getInt("temp") + "°C"
+                val tempMin = "Min Temp: " + main.getInt("temp_min")
+                val tempMax = "Max Temp: " + main.getInt("temp_max")
+                //val tempMax = "Max Temp: " + main.getString("temp_max") + "°C"
                 val pressure = main.getString("pressure")
                 val humidity = main.getString("humidity")
                 val sunrise: Long = sys.getLong("sunrise")
@@ -125,11 +117,11 @@ class MainWeatherViewActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.updated_at).text = updatedAtText
                 findViewById<TextView>(R.id.status).text = weatherDescription.capitalize()
                 findViewById<TextView>(R.id.temp).text =
-                    temp.substring(0, Math.min(temp.length, 2)) + "°C"
+                    temp.toString() + "°C"
                 findViewById<TextView>(R.id.temp_min).text =
-                    tempMin.substring(0, Math.min(tempMin.length, 12)) + "°C"
+                    tempMin.toString() + "°C"
                 findViewById<TextView>(R.id.temp_max).text =
-                    tempMax.substring(0, Math.min(tempMax.length, 12)) + "°C"
+                    tempMax.toString() + "°C"
                 findViewById<TextView>(R.id.sunrise).text =
                     SimpleDateFormat("hh:mm a", Locale.ENGLISH).format(Date(sunrise * 1000))
                 findViewById<TextView>(R.id.sunset).text =
@@ -160,18 +152,18 @@ class MainWeatherViewActivity : AppCompatActivity() {
 
     @SuppressLint("MissingPermission")
     private fun getLocations() {
-        mFusedLocationClient.lastLocation?.addOnSuccessListener {
+        mFusedLocationClient.getLastLocation()?.addOnSuccessListener {
             if(it == null) {
                 Toast.makeText(this, "Sorry Can't get Location", Toast.LENGTH_SHORT).show()
             } else it.apply{
-                val lattitude = it.latitude
+                val latitude = it.latitude
                 val longitude = it.longitude
                 var manuallattitude = 43.7184038
                 var manualongitude = -79.5181405
                 var cityName:String = ""
                 var countryName = ""
                 var geocoder = Geocoder(this@MainWeatherViewActivity, Locale.getDefault())
-                var cityAddress = geocoder.getFromLocation(lattitude,longitude,3)
+                var cityAddress = geocoder.getFromLocation(latitude,longitude,3)
 
                 if (cityAddress != null) {
                     cityName = cityAddress.get(0).locality
@@ -181,7 +173,7 @@ class MainWeatherViewActivity : AppCompatActivity() {
                     countryName = cityAddress.get(0).countryName
                 }
 
-                addressText.text = "Latitude: $manuallattitude, Longitude: $manualongitude, City: $cityName, Country: $countryName"
+                addressText.text = "Latitude: $latitude, Longitude: $longitude, City: $cityName, Country: $countryName"
             }
         }
 

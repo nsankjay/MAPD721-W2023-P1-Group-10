@@ -426,14 +426,25 @@
             android:background="#3CF1EBF1"
             app:srcCompat="@android:drawable/ic_menu_mylocation" />
 
+        <ImageButton
+            android:id="@+id/goToForecastBtn"
+            android:layout_width="43dp"
+            android:layout_height="49dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="115dp"
+            android:layout_marginEnd="-2dp"
+            android:background="#3CF1EBF1"
+            app:srcCompat="@android:drawable/ic_menu_agenda" />
+
         <TextView
             android:id="@+id/lattitudeTxt"
             android:layout_width="172dp"
             android:layout_height="40dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="110dp"
-            android:layout_marginEnd="0dp"
+            android:layout_marginTop="105dp"
+            android:layout_marginEnd="186dp"
             android:text="Lattitude"
             android:textSize="14sp"
             android:visibility="invisible">
@@ -446,8 +457,8 @@
             android:layout_height="38dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="112dp"
-            android:layout_marginEnd="181dp"
+            android:layout_marginTop="63dp"
+            android:layout_marginEnd="183dp"
             android:text="Longitude"
             android:textSize="14sp"
             android:visibility="invisible">
@@ -484,12 +495,12 @@
 
         <TextView
             android:id="@+id/addressTxt"
-            android:layout_width="359dp"
+            android:layout_width="168dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="203dp"
-            android:layout_marginEnd="0dp"
+            android:layout_marginEnd="191dp"
             android:text="Address"
             android:textSize="14sp"
             android:visibility="invisible">
