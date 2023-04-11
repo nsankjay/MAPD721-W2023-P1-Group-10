@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import com.squareup.picasso.Picasso
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -68,6 +69,9 @@ class WeatherMapActivity : AppCompatActivity() {
 //        val input = connection.inputStream
 //        val bitmap = BitmapFactory.decodeStream(input)
 //        mapImageView.setImageBitmap(bitmap)
+        Picasso.get()
+            .load("https://tile.openweathermap.org/map/$MAPLAYER/0/0/0.png?appid=$MAPAPI")
+            .into(mapImageView)
         mapImageView.visibility = View.VISIBLE
     }
 }

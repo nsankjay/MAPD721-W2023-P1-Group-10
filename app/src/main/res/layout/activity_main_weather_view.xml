@@ -125,8 +125,8 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/sunrise"
                         android:tint="#FFF">
 
@@ -138,7 +138,7 @@
                     </Space>
 
                     <TextView
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:text="Sunrise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -147,7 +147,7 @@
 
                     <TextView
                         android:id="@+id/sunrise"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:text="6:45am"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -172,8 +172,8 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/sunset"
                         android:tint="#FFF">
 
@@ -185,7 +185,7 @@
                     </Space>
 
                     <TextView
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:text="Sunset"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -194,7 +194,7 @@
 
                     <TextView
                         android:id="@+id/sunset"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:text="6:45am"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -219,8 +219,8 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/wind"
                         android:tint="#FFF">
 
@@ -232,7 +232,7 @@
                     </Space>
 
                     <TextView
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:text="Wind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -241,7 +241,7 @@
 
                     <TextView
                         android:id="@+id/wind"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:text="6:45am"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -280,8 +280,8 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/pressure"
                         android:tint="#FFF">
 
@@ -293,7 +293,7 @@
                     </Space>
 
                     <TextView
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:text="Pressure"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -302,7 +302,7 @@
 
                     <TextView
                         android:id="@+id/pressure"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:text="6:45am"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -327,8 +327,8 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/humidity"
                         android:tint="#FFF">
 
@@ -340,7 +340,7 @@
                     </Space>
 
                     <TextView
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:text="Humidity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -349,7 +349,7 @@
 
                     <TextView
                         android:id="@+id/humidity"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:text="6:45am"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -374,8 +374,8 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:src="@drawable/info"
                         android:tint="#FFF">
 
@@ -387,7 +387,7 @@
                     </Space>
 
                     <TextView
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:text="Created by"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -396,7 +396,7 @@
 
                     <TextView
                         android:id="@+id/info"
-                        android:textSize="14sp"
+                        android:textSize="18sp"
                         android:text="N. Sankjay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
