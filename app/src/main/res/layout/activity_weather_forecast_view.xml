@@ -30,15 +30,6 @@
         style="@style/StartServiceButtonStyle2"
         android:text="Get Forecast" />
 
-    <ListView
-        android:id="@+id/forecastListView"
-        android:layout_width="match_parent"
-        android:layout_height="597dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ProgressBar
         android:id="@+id/forecastLoader"
         android:layout_centerInParent="true"
@@ -60,15 +51,14 @@
 
     </TextView>
 
-    <TextView
-        android:id="@+id/forecastLocationTv"
-        android:textSize="18sp"
-        android:layout_gravity="center"
-        android:text="Location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-    </TextView>
+    <ListView
+        android:id="@+id/forecastListView"
+        android:layout_width="match_parent"
+        android:layout_height="544dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/goToMainWeatherViewBtn"

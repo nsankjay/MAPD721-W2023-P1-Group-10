@@ -18,15 +18,15 @@ class WeatherForecastViewActivity : AppCompatActivity() {
     var temperature: String = ""
     var forecastDescription: String = ""
     var forecastDate: String = ""
+    var forecastImage: Int = 0
 
     var FORECASTCITY: String = "Vancouver,CA"
     val FORECASTAPI: String = "3b57b3d787ba93b37afb428cb50d2cdd"
-    var FORECASTCOUNT: Int = 5
+    var FORECASTCOUNT: Int = 40
 
     private lateinit var getForcastBtn: Button
     private lateinit var goToMainWeatherViewBtn: Button
 
-    private lateinit var frcstLocationTv: TextView
     private lateinit var setFrcstCityTxt: EditText
 
 
@@ -36,14 +36,13 @@ class WeatherForecastViewActivity : AppCompatActivity() {
 
         //Assigning current city for display and global variable
         var FRCSTCITY = intent.getStringExtra("EXTRA_FORECASTCITY")
-        frcstLocationTv = findViewById(R.id.forecastLocationTv) //This connects the declared text view to the xml text view
-        val forecastLocationDisplay = frcstLocationTv
         FORECASTCITY = FRCSTCITY.toString()
-        forecastLocationDisplay.text = FORECASTCITY
 
         //Setting the Edit text with city value
         setFrcstCityTxt = findViewById<EditText>(R.id.enterCityTxt)
         setFrcstCityTxt.setText(FORECASTCITY)
+
+        forecastWeatherTask().execute()
 
 
         goToMainWeatherViewBtn = findViewById(R.id.goToMainWeatherViewBtn)
@@ -59,7 +58,9 @@ class WeatherForecastViewActivity : AppCompatActivity() {
 
         getForcastBtn.setOnClickListener {
 
+            setNewCity()
             forecastWeatherTask().execute()
+            arrayNum = 0
 
         }
     }
@@ -107,7 +108,7 @@ class WeatherForecastViewActivity : AppCompatActivity() {
                     /* Extracting data from API result and Populating extracted data into list */
                     val list2 = jsonObj.getJSONArray("list").getJSONObject(arrayNum)
                     val main = list2.getJSONObject("main")
-                    val temp = main.getDouble("temp")
+                    val temp = main.getInt("temp")
                     temperature = temp.toString() + "°C"
                     val weather = list2.getJSONArray("weather").getJSONObject(0)
                     val weatherDescription = weather.getString("description")
@@ -116,7 +117,15 @@ class WeatherForecastViewActivity : AppCompatActivity() {
                     val forecastDateTxt = SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(weatherDate * 1000))
                     forecastDate = forecastDateTxt
 
-                    listForecast.add(forecastModel(temperature, forecastDescription, forecastDate, R.drawable.ic_sunny_weather))
+                    if (forecastDescription == "light rain") {
+                        forecastImage = R.drawable.ic_rainy_weater
+                    } else if (forecastDescription == "moderate rain") {
+                        forecastImage = R.drawable.ic_moderate_rain_weather
+                    } else {
+                        forecastImage = R.drawable.ic_sunny_weather
+                    }
+
+                    listForecast.add(forecastModel(temperature, forecastDescription, forecastDate, forecastImage))
 
                     arrayNum += 1
 
@@ -132,5 +141,13 @@ class WeatherForecastViewActivity : AppCompatActivity() {
                 findViewById<TextView>(R.id.forecastErrorText).visibility = View.VISIBLE
             }
         }
+    }
+
+    private fun setNewCity()
+    {
+        val cityText=findViewById<EditText>(R.id.enterCityTxt)
+        val enteredCity = cityText.text.toString()
+        FORECASTCITY = enteredCity
+
     }
 }
