@@ -2,6 +2,7 @@ package com.sn.mapd721_w2023_p1_group_10
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.*
 import android.os.AsyncTask
@@ -24,19 +25,14 @@ class MainWeatherViewActivity : AppCompatActivity() {
     val API: String = "3b57b3d787ba93b37afb428cb50d2cdd"
 
     //Connecting UI objects for Current location display
-//    var lattitudeText = findViewById<TextView>(R.id.lattitudeTxt)
-//    var longitudeText = findViewById<TextView>(R.id.longitudeTxt)
-//    var countryText = findViewById<TextView>(R.id.countryNameTxt)
-//    var localityText = findViewById<TextView>(R.id.localityTxt)
-//    var addressText = findViewById<TextView>(R.id.addressTxt)
-//    var getLocationBtn = findViewById<ImageButton>(R.id.getPosGetCurrentLocationBtn)
-
     private lateinit var lattitudeText: TextView
     private lateinit var longitudeText: TextView
     private lateinit var countryText: TextView
     private lateinit var localityText: TextView
     private lateinit var addressText: TextView
     private lateinit var getLocationBtn: ImageButton
+
+    private lateinit var goToForecastBtn: ImageButton
 
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     //private val permissionId = 2
@@ -52,6 +48,7 @@ class MainWeatherViewActivity : AppCompatActivity() {
         localityText = findViewById(R.id.localityTxt)
         addressText = findViewById(R.id.addressTxt)
         getLocationBtn = findViewById(R.id.getPosGetCurrentLocationBtn)
+        goToForecastBtn = findViewById(R.id.goToForecastBtn)
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         weatherTask().execute()
@@ -59,6 +56,14 @@ class MainWeatherViewActivity : AppCompatActivity() {
         getLocationBtn.setOnClickListener {
             checkPermissions()
             weatherTask().execute()
+        }
+
+        goToForecastBtn.setOnClickListener {
+            Intent(this, WeatherForecastViewActivity::class.java).also {
+                val forecastCity: String = CITY
+                it.putExtra("EXTRA_FORECASTCITY", forecastCity)
+                startActivity(it)
+            }
         }
 
 
