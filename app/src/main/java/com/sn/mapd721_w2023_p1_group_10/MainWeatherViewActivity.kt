@@ -21,7 +21,7 @@ import kotlin.math.round
 
 class MainWeatherViewActivity : AppCompatActivity() {
 
-    var CITY: String = "Vancouver,CA"
+    var CITY: String = "Alberta,CA"
     val API: String = "3b57b3d787ba93b37afb428cb50d2cdd"
 
     //Connecting UI objects for Current location display
@@ -31,8 +31,9 @@ class MainWeatherViewActivity : AppCompatActivity() {
     private lateinit var localityText: TextView
     private lateinit var addressText: TextView
     private lateinit var getLocationBtn: ImageButton
-
     private lateinit var goToForecastBtn: ImageButton
+    private lateinit var goToWeatherReminderListBtn: ImageButton
+    private lateinit var goToWeatherMapViewBtn: ImageButton
 
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     //private val permissionId = 2
@@ -49,6 +50,8 @@ class MainWeatherViewActivity : AppCompatActivity() {
         addressText = findViewById(R.id.addressTxt)
         getLocationBtn = findViewById(R.id.getPosGetCurrentLocationBtn)
         goToForecastBtn = findViewById(R.id.goToForecastBtn)
+        goToWeatherReminderListBtn = findViewById(R.id.goToWeatherReminderListBtn)
+        goToWeatherMapViewBtn = findViewById(R.id.goToWeatherMapViewBtn)
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         weatherTask().execute()
@@ -60,6 +63,22 @@ class MainWeatherViewActivity : AppCompatActivity() {
 
         goToForecastBtn.setOnClickListener {
             Intent(this, WeatherForecastViewActivity::class.java).also {
+                val forecastCity: String = CITY
+                it.putExtra("EXTRA_FORECASTCITY", forecastCity)
+                startActivity(it)
+            }
+        }
+
+        goToWeatherReminderListBtn.setOnClickListener {
+            Intent(this, WeatherReminderListViewActivity::class.java).also {
+                val forecastCity: String = CITY
+                it.putExtra("EXTRA_FORECASTCITY", forecastCity)
+                startActivity(it)
+            }
+        }
+
+        goToWeatherMapViewBtn.setOnClickListener {
+            Intent(this, WeatherMapActivity::class.java).also {
                 val forecastCity: String = CITY
                 it.putExtra("EXTRA_FORECASTCITY", forecastCity)
                 startActivity(it)

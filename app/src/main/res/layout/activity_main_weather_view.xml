@@ -437,6 +437,28 @@
             android:background="#3CF1EBF1"
             app:srcCompat="@android:drawable/ic_menu_agenda" />
 
+        <ImageButton
+            android:id="@+id/goToWeatherReminderListBtn"
+            android:layout_width="43dp"
+            android:layout_height="49dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="175dp"
+            android:layout_marginEnd="-2dp"
+            android:background="#3CF1EBF1"
+            app:srcCompat="@android:drawable/ic_popup_reminder" />
+
+        <ImageButton
+            android:id="@+id/goToWeatherMapViewBtn"
+            android:layout_width="43dp"
+            android:layout_height="49dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="235dp"
+            android:layout_marginEnd="-2dp"
+            android:background="#3CF1EBF1"
+            app:srcCompat="@android:drawable/ic_menu_mapmode" />
+
         <TextView
             android:id="@+id/lattitudeTxt"
             android:layout_width="172dp"
@@ -506,6 +528,17 @@
             android:visibility="invisible">
 
         </TextView>
+
+        <ImageView
+            android:id="@+id/wetherIconGraphicImgVw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="116dp"
+            android:layout_marginTop="158dp"
+            app:srcCompat="@drawable/ic_sunny_weather"
+            android:visibility="gone"/>
 
 
     </RelativeLayout>

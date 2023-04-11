@@ -17,6 +17,7 @@ class WeatherForecastViewActivity : AppCompatActivity() {
     var arrayNum: Int = 0
     var temperature: String = ""
     var forecastDescription: String = ""
+    var forecastImageIcon: String = ""
     var forecastDate: String = ""
     var forecastImage: Int = 0
 
@@ -25,7 +26,7 @@ class WeatherForecastViewActivity : AppCompatActivity() {
     var FORECASTCOUNT: Int = 40
 
     private lateinit var getForcastBtn: Button
-    private lateinit var goToMainWeatherViewBtn: Button
+    private lateinit var ForecastGoBackToMainWeatherViewBtn: Button
 
     private lateinit var setFrcstCityTxt: EditText
 
@@ -45,9 +46,9 @@ class WeatherForecastViewActivity : AppCompatActivity() {
         forecastWeatherTask().execute()
 
 
-        goToMainWeatherViewBtn = findViewById(R.id.goToMainWeatherViewBtn)
+        ForecastGoBackToMainWeatherViewBtn = findViewById(R.id.goToMainWeatherViewBtn)
 
-        goToMainWeatherViewBtn.setOnClickListener {
+        ForecastGoBackToMainWeatherViewBtn.setOnClickListener {
             Intent(this, MainWeatherViewActivity::class.java).also {
 
                 startActivity(it)
@@ -113,21 +114,25 @@ class WeatherForecastViewActivity : AppCompatActivity() {
                     val weather = list2.getJSONArray("weather").getJSONObject(0)
                     val weatherDescription = weather.getString("description")
                     forecastDescription = weatherDescription
+                    val weatherImgIcon = weather.getString("icon")
+                    val iconUrl = "http://openweathermap.org/img/w/$weatherImgIcon.png"
+                    forecastImageIcon = iconUrl
                     val weatherDate: Long = list2.getLong("dt")
                     val forecastDateTxt = SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(Date(weatherDate * 1000))
                     forecastDate = forecastDateTxt
 
-                    if (forecastDescription == "light rain") {
+
+                    if (forecastDescription == "light rain" || forecastDescription == "moderate rain") {
                         forecastImage = R.drawable.ic_rainy_weater
-                    } else if (forecastDescription == "moderate rain") {
+                    } else if (forecastDescription == "scattered clouds" || forecastDescription == "broken clouds" || forecastDescription == "overcast clouds") {
                         forecastImage = R.drawable.ic_moderate_rain_weather
                     } else {
                         forecastImage = R.drawable.ic_sunny_weather
                     }
 
-                    listForecast.add(forecastModel(temperature, forecastDescription, forecastDate, forecastImage))
-
                     arrayNum += 1
+
+                    listForecast.add(forecastModel(temperature, forecastDescription, forecastDate, forecastImage))
 
                 }
 
