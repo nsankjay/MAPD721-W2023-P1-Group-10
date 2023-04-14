@@ -70,7 +70,7 @@ class MainWeatherViewActivity : AppCompatActivity() {
         }
 
         goToWeatherReminderListBtn.setOnClickListener {
-            Intent(this, WeatherReminderListViewActivity::class.java).also {
+            Intent(this, WeatherReminderListViewActivity2::class.java).also {
                 val forecastCity: String = CITY
                 it.putExtra("EXTRA_FORECASTCITY", forecastCity)
                 startActivity(it)

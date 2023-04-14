@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+   android:padding="15dp"
+    android:background="@drawable/custom_row">
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reminderCompleteCheckBox"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reminderNameTextTv"
+        android:textStyle="italic|bold"
+        android:layout_centerVertical="true"
+        android:text="Vancouver"
+        android:layout_toEndOf="@+id/reminderCompleteCheckBox"
+        android:layout_toRightOf="@+id/reminderCompleteCheckBox"
+        android:textColor="@color/black"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/reminderDateTextTv"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reminderNameTextTv"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="-30dp"
+        android:layout_marginEnd="65dp"
+        android:layout_toEndOf="@+id/reminderNameTextTv"
+        android:layout_toRightOf="@+id/reminderNameTextTv"
+        android:text="13/04/2023"
+        android:textColor="@color/teal_200"
+        android:textSize="18sp"
+        android:textStyle="italic|bold" />
+
+    <ImageButton
+        android:id="@+id/reminderCloseDeleteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/reminderDateTextTv"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/btn_dialog" />
+
+
+</RelativeLayout>

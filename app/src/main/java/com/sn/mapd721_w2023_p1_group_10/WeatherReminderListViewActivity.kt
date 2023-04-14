@@ -25,8 +25,8 @@ class WeatherReminderListViewActivity : AppCompatActivity() {
         REMINDERCITY = FRCSTCITY.toString()
 
         //Setting the Edit text with city value
-        setReminderCityTxt = findViewById<EditText>(R.id.enterReminderCityTxt)
-        setReminderCityTxt.setText(REMINDERCITY)
+//        setReminderCityTxt = findViewById<EditText>(R.id.enterReminderCityTxt)
+//        setReminderCityTxt.setText(REMINDERCITY)
 
         ReminderGoBackToWeatherViewBtn = findViewById(R.id.reminderGoBackToWeatherViewBtn)
 
@@ -41,9 +41,9 @@ class WeatherReminderListViewActivity : AppCompatActivity() {
 
     private fun setNewReminderCity()
     {
-        val cityText=findViewById<EditText>(R.id.enterReminderCityTxt)
-        val enteredCity = cityText.text.toString()
-        REMINDERCITY = enteredCity
+//        val cityText=findViewById<EditText>(R.id.enterReminderCityTxt)
+//        val enteredCity = cityText.text.toString()
+//        REMINDERCITY = enteredCity
 
     }
 }

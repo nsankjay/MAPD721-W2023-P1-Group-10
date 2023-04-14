@@ -31,6 +31,11 @@ class WeatherMapActivity : AppCompatActivity() {
         setContentView(R.layout.activity_weather_map)
 
 
+        setMapLayerTxt = findViewById(R.id.enterMapLayerTxt)
+        setMapLayerTxt.setText(MAPLAYER)
+
+        setMap()
+
         getNewLayerBtn = findViewById(R.id.mapChangeLayerBtn)
 
         getNewLayerBtn.setOnClickListener {
@@ -62,6 +67,10 @@ class WeatherMapActivity : AppCompatActivity() {
     private fun setMap()
     {
         mapImageView = findViewById<ImageView?>(R.id.displayMapimageView)
+        Picasso.get()
+            .load("https://tile.openweathermap.org/map/$MAPLAYER/0/0/0.png?appid=$MAPAPI")
+            .into(mapImageView)
+        mapImageView.visibility = View.VISIBLE
 //        val url = "https://tile.openweathermap.org/map/$MAPLAYER/0/0/0.png?appid=$MAPAPI"
 //        val connection = URL(url).openConnection() as HttpURLConnection
 //        connection.doInput = true
@@ -69,9 +78,5 @@ class WeatherMapActivity : AppCompatActivity() {
 //        val input = connection.inputStream
 //        val bitmap = BitmapFactory.decodeStream(input)
 //        mapImageView.setImageBitmap(bitmap)
-        Picasso.get()
-            .load("https://tile.openweathermap.org/map/$MAPLAYER/0/0/0.png?appid=$MAPAPI")
-            .into(mapImageView)
-        mapImageView.visibility = View.VISIBLE
     }
 }

@@ -8,20 +8,6 @@
     android:background="@drawable/gradient_background"
     tools:context=".WeatherReminderListViewActivity">
 
-    <EditText
-        android:id="@+id/enterReminderCityTxt"
-        style="@style/ListTextTitle2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:ems="10"
-        android:hint="Enter 'City,CountryCode'"
-        android:textAlignment="center"
-        android:textColorHint="#FFFFFF" />
-
     <TextView
         android:id="@+id/randomTxt"
         style="@style/JustText2"
@@ -32,16 +18,11 @@
 
     </TextView>
 
-    <DatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:calendarTextColor="@color/white"
-        android:dayOfWeekBackground="@color/white"
-        android:dayOfWeekTextAppearance="@color/white">
 
-    </DatePicker>
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reminderRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="464dp" />
 
     <Button
         android:id="@+id/reminderSaveDataBtn"
@@ -94,6 +75,14 @@
 
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/AddFabBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:layout_marginEnd="10dp"
+        app:srcCompat="@drawable/ic_baseline_add_alarm_24" />
 
 
 </LinearLayout>
